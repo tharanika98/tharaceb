@@ -1,0 +1,94 @@
+<!DOCTYPE Html>
+<html>
+	<head>
+		<title>Electricity Bill Calculator</title>
+		<style>
+		body{
+		margin:100px;
+		background-image:url('ele.jpg');
+		background-repeat:no-repeat;
+		background-size:cover;
+		background-attchment:fixed;
+		}
+		.a{
+		border-style:solid;
+		border-radius:20px;
+		border-width:10px;
+		padding-left:20px;
+		padding-top:20px
+		text-align:center;
+		font-size:200%;
+		color:yellow;
+		}
+		.b{
+		font-size:25px;
+		}
+		</style>
+	</head>
+	<body >
+		<center>
+		<form Method="post" target="_self">
+				
+		<table class="a">
+		<tr>
+			<td><p align="right"><b>Number of Units Used</b></p></td>
+			<td> <input type="Number" name="Number of unit" id="Eunit" size=15></td>
+			<td><b>kWh</b></td>
+		</tr>
+		<tr> 	
+			<td colspan="2" align="right"><b><input type="reset" value="Clear" size="30"></b></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="right"><b><button type="button" name="button" onclick="Billfunction()" size="15"><b>Calcutate My Bill</button></b></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center"><p><b>Your bill amount is:<span id="BillAmount"></span>Rs</b></p></td>
+			<td></td>
+		</tr>
+	</table>
+				
+	</form>
+						
+	<table class="b">
+		<tr>
+		<td colspan="2"><a href="https://ceb.lk/bill-calculation-commercial/en" target="_blank">More Information on hoe my bill <br>is calculated</a></td>
+		<td align="right"><a href="https://roar.media/english/life/reports/electricity-bill-calculated-analysis" target="_blank">Go to CEB web site</a></td>
+	</tr>
+	<tr>
+	<br><br>
+		<td colspan="3" align="right"><b>Created by:V.Tharanika</b></td>
+		</tr>
+	</table>
+</center>					
+			
+		<script>
+		function Billfunction()
+		{
+			let unit=document.getElementById("Eunit").value;
+			if(unit<=30)
+			{
+				document.getElementById("BillAmount").innerHTML=Number(unit)*7.85;	
+			}
+			else if(unit<=60)
+			{
+				document.getElementById("BillAmount").innerHTML=235.50+(Number(unit)-30)*7.85;
+			}
+			else if(unit<=90)
+			{
+				document.getElementById("BillAmount").innerHTML=471+(Number(unit)-60)*10;
+			}
+			else if(unit<=120)
+			{
+				document.getElementById("BillAmount").innerHTML=771+(Number(unit)-90)*27.75;
+			}
+			else 
+			{
+				document.getElementById("BillAmount").innerHTML=1603.50+(Number(unit)-120)*32+480;
+			}
+		}
+	</script>
+			
+	</body>
+</html>
